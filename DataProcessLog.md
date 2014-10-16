@@ -97,10 +97,6 @@ head(dcdata[, c("dob", "birth_date")])  # see if it worked
 ##          dob birth_date
 ## 1 1927-06-25  6/25/1927
 ## 2 1941-07-18  7/18/1941
-## 3 1941-07-18  7/18/1941
-## 4 1941-07-18  7/18/1941
-## 5 1944-02-21  2/21/1944
-## 6 1953-09-05   9/5/1953
 ```
 
 ```r
@@ -139,10 +135,6 @@ head(dcdata[, c("admitdate", "dischargedate", "los")])
 ##    admitdate dischargedate los
 ## 1 2010-04-07    2010-04-08   1
 ## 2 2009-10-23    2009-10-30   7
-## 3 2010-03-28    2010-03-29   1
-## 4 2009-04-28    2009-04-30   2
-## 5 2011-11-20    2011-11-21   1
-## 6 2009-03-31    2009-04-04   4
 ```
 
 ```r
@@ -172,10 +164,6 @@ head(dcdata[, c("dischargedate", "birth_date", "dob", "tmpyear", "age")])
 ##   dischargedate birth_date        dob tmpyear age
 ## 1    2010-04-08  6/25/1927 1927-06-25      83  82
 ## 2    2009-10-30  7/18/1941 1941-07-18      68  68
-## 3    2010-03-29  7/18/1941 1941-07-18      69  68
-## 4    2009-04-30  7/18/1941 1941-07-18      68  67
-## 5    2011-11-21  2/21/1944 1944-02-21      67  67
-## 6    2009-04-04   9/5/1953 1953-09-05      56  55
 ```
 
 ```r
@@ -207,10 +195,6 @@ head(dcdata[, 38:39])  # check data
 ##   age agegpn
 ## 1  82     18
 ## 2  68     15
-## 3  68     15
-## 4  67     15
-## 5  67     15
-## 6  55     13
 ```
 
 ```r
@@ -372,93 +356,6 @@ count(dcdata, c("racegpn2"), )  # check result
 # was not the case for the new data obtained in September 2014
 sort <- dcdata[order(dcdata$dischargedate, na.last = FALSE), ]
 tail(sort)  # what are the largest 'year' values?
-```
-
-```
-##           mrn  bill_num pat_enc_csn_id birth_date           ethnic_group
-## 82105 3245786 336586656       42522540 12/15/2011 Not Hispanic or Latino
-## 82107 3245871 336600069       42525553  6/28/1997 Not Hispanic or Latino
-## 82533  600300 336579529       42520828 11/17/1927 Not Hispanic or Latino
-## 82896  708830 336353768       42462191   2/7/1956 Not Hispanic or Latino
-## 83426  814110 336277769       42428887   5/7/1921 Not Hispanic or Latino
-## 84672  981568 336632880       42533272   4/2/1925 Not Hispanic or Latino
-##                         race sex           add_line_1 add_line_2    city
-## 82105 Black/African-American   M       3550 S. RHODES       #301 CHICAGO
-## 82107 Black/African-American   F      3579 LINCOLN ST       <NA>    GARY
-## 82533 Black/African-American   F       1371 E 48TH ST     3RD FL CHICAGO
-## 82896 Black/African-American   M 6932 S WENTWORTH AVE       <NA> CHICAGO
-## 83426 Black/African-American   M        452 E 95TH ST       <NA> CHICAGO
-## 84672 Black/African-American   F  7541 S JEFFERY BLVD        2ND CHICAGO
-##       state   zip    hosp_admsn_time       contact_date    hosp_disch_time
-## 82105    IL 60653 28dec2011 20:37:00 28dec2011 00:00:00 30dec2011 11:55:00
-## 82107    IN 46408 28dec2011 22:38:59 28dec2011 00:00:00 30dec2011 12:52:00
-## 82533    IL 60615 29dec2011 02:15:00 28dec2011 00:00:00 30dec2011 15:17:59
-## 82896    IL 60621 18dec2011 18:27:00 18dec2011 00:00:00 30dec2011 16:07:00
-## 83426    IL 60619 27dec2011 14:35:00 13dec2011 00:00:00 30dec2011 12:04:59
-## 84672    IL 60649 30dec2011 03:01:00 29dec2011 00:00:00 30dec2011 18:32:00
-##       room_id department_name       center_name
-## 82105     464            CICU    Comer Hospital
-## 82107     424            CCH5    Comer Hospital
-## 82533     238            T5NW Mitchell Hospital
-## 82896     347            T6SW Mitchell Hospital
-## 83426     207            T4SW Mitchell Hospital
-## 84672     283            T5SW Mitchell Hospital
-##                       service_name admit_conf_stat ed_flag
-## 82105     PEDIATRIC INTENSIVE CARE       Confirmed       1
-## 82107     PEDIATRIC OTOLARYNGOLOGY       Confirmed       1
-## 82533 Hospitalist General Medicine       Confirmed       1
-## 82896          HEMATOLOGY/ONCOLOGY       Confirmed       1
-## 83426                  ORTHOPEDICS       Confirmed       0
-## 84672                   CARDIOLOGY       Confirmed       1
-##          ed_arrival_time      fin_class bill_num_type
-## 82105 28dec2011 13:02:59       MEDICAID   Inpat or ED
-## 82107 28dec2011 17:51:00 Minor Programs   Inpat or ED
-## 82533 28dec2011 10:52:00       MEDICARE   Inpat or ED
-## 82896 18dec2011 11:00:59       MEDICAID   Inpat or ED
-## 83426               <NA>       MEDICARE   Inpat or ED
-## 84672 29dec2011 18:43:00       MEDICARE   Inpat or ED
-##                                                                                                                   icd9dx_encounte2
-## 82105                                                                                                 [379.50], [432.1], [800.00],
-## 82107                                                                                                                     [870.8],
-## 82533                                                                                                 [401.9], [786.05], [799.02],
-## 82896                                                             [162.9], [453.40], [511.9], [724.1], [724.5], [729.5], [V53.99],
-## 83426                                                                                                                    [V43.61],
-## 84672 [285.9], [401.9], [410.70], [410.90], [414.00], [585.3], [729.81], [780.79], [786.05], [786.50], [787.20], [904.8], [997.2],
-##                                 icd9dx_problem_list
-## 82105 [379.56], [430], [432.1], [803.00], [810.00],
-## 82107                                          <NA>
-## 82533                                          <NA>
-## 82896                                          <NA>
-## 83426                                          <NA>
-## 84672                                          <NA>
-##                                                                                                                                             icd9dx_encounter
-## 82105                                                         dx0:[800.21], dx3:[779.89], dx4:[564.00], dx5:[379.50], dx6:[767.2], dx1:[767.3], dx2:[800.21]
-## 82107                                                                          dx1:[870.2], dx0:[871.3], dx3:[884.0], dx2:[873.0], dx5:[E906.0], dx4:[871.1]
-## 82533   dx1:[401.9], dx2:[403.90], dx3:[585.9], dx10:[V10.3], dx7:[733.00], dx5:[272.4], dx9:[V45.71], dx6:[305.1], dx4:[414.01], dx8:[787.91], dx0:[786.05]
-## 82896  dx3:[198.3], dx0:[780.79], dx4:[198.89], dx9:[453.40], dx2:[162.9], dx1:[198.5], dx6:[276.1], dx5:[511.81], dx10:[276.52], dx8:[733.13], dx7:[788.20]
-## 83426                               dx1:[715.31], dx0:[716.81], dx8:[274.9], dx7:[272.0], dx6:[285.29], dx2:[840.4], dx4:[403.90], dx3:[600.00], dx5:[585.9]
-## 84672                                dx5:[414.01], dx8:[412], dx4:[584.9], dx6:[403.90], dx1:[786.50], dx3:[V58.69], dx0:[410.70], dx2:[786.05], dx7:[585.9]
-##              dob  admitdate admityear admitmonth admitday dischargedate
-## 82105 2011-12-15 2011-12-28      2011         12       28    2011-12-30
-## 82107 1997-06-28 2011-12-28      2011         12       28    2011-12-30
-## 82533 1927-11-17 2011-12-29      2011         12       29    2011-12-30
-## 82896 1956-02-07 2011-12-18      2011         12       18    2011-12-30
-## 83426 1921-05-07 2011-12-27      2011         12       27    2011-12-30
-## 84672 1925-04-02 2011-12-30      2011         12       30    2011-12-30
-##       dischargeyear dischargemonth dischargeday los age agegpn sexgpn
-## 82105          2011             12           30   2   0      1      2
-## 82107          2011             12           30   2  14      3      3
-## 82533          2011             12           30   1  84     18      3
-## 82896          2011             12           30  12  55     13      2
-## 83426          2011             12           30   3  90     19      2
-## 84672          2011             12           30   0  86     19      3
-##        racegp1  racegp2 racegpn1 racegpn2
-## 82105 NH Other NH Black        3        3
-## 82107 NH Other NH Black        3        3
-## 82533 NH Other NH Black        3        3
-## 82896 NH Other NH Black        3        3
-## 83426 NH Other NH Black        3        3
-## 84672 NH Other NH Black        3        3
 ```
 
 ```r
@@ -883,15 +780,6 @@ noLongerInChicago <- dcdata_all[dcdata_all$city == "CHICAGO" & is.na(dcdata_all$
 # although geocoded, there is only one borderline mistake GIS/overlay made
 # (not it's fault as it is data accuracy issue) I will manually change the
 # cases (one address, three obs. - mom twice plus newborn baby.)
-dcdata_all$geoid10[dcdata_all$add_line_1 == "2451 W HOWARD ST" & dcdata_all$city == 
-    "CHICAGO"] <- "17031020200"
-dcdata_all$area_numbe[dcdata_all$add_line_1 == "2451 W HOWARD ST" & dcdata_all$city == 
-    "CHICAGO"] <- 2
-dcdata_all$community[dcdata_all$add_line_1 == "2451 W HOWARD ST" & dcdata_all$city == 
-    "CHICAGO"] <- "WEST RIDGE"
-# Make sure the change was applied to the three cases..
-# View(dcdata_all[dcdata_all$add_line_1=='2451 W HOWARD ST' &
-# dcdata_all$city=='CHICAGO',])
 
 # # rename is an hasstle renamecol<-which(colnames(dcdata_all)=='RACE')
 # colnamelist<-colnames(dcdata_all) colnamelist[renamecol]<-'race'
